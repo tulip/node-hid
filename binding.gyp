@@ -10,7 +10,7 @@
         [ 'OS=="mac"', {
           'sources': [ 'hidapi/mac/hid.c' ],
           'include_dirs+': [
-            'libusb.gypi:libusb'
+            '/usr/include/libusb-1.0/'
           ]
         }],
         [ 'OS=="linux"', {
