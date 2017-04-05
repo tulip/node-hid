@@ -9,16 +9,16 @@
       'conditions': [
         [ 'OS=="mac"', {
           'sources': [ 'hidapi/mac/hid.c' ],
-          'include_dirs+': [
-            '/usr/include/libusb-1.0/'
+          'dependencies': [
+            'libusb.gypi:libusb'
           ]
         }],
         [ 'OS=="linux"', {
           'conditions': [
             [ 'driver=="libusb"', {
               'sources': [ 'hidapi/libusb/hid.c' ],
-	      'dependencies': [
-		'libusb.gypi:libusb',
+	            'dependencies': [
+                'libusb.gypi:libusb',
               ]
             }],
             [ 'driver=="hidraw"', {
@@ -78,19 +78,8 @@
           }
         }],
         [ 'OS=="linux"', {
-          'conditions': [
-            [ 'driver=="libusb"', {
-              'libraries': [
-                '-lusb-1.0'
-              ]
-            }],
-            [ 'driver=="hidraw"', {
-              'libraries': [
-                '-ludev',
-                '-lusb-1.0'
-              ]
-            }]
-          ],
+          'dependencies': ['libusb.gypi:libusb'],
+          'libraries': ['-ludev'],
         }],
         [ 'OS=="win"', {
           'msvs_settings': {
