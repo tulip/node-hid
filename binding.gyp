@@ -10,7 +10,7 @@
         [ 'OS=="mac"', {
           'sources': [ 'hidapi/mac/hid.c' ],
           'include_dirs+': [
-            '/usr/include/libusb-1.0/'
+            'libusb/libusb'
           ]
         }],
         [ 'OS=="linux"', {
@@ -18,7 +18,7 @@
             [ 'driver=="libusb"', {
               'sources': [ 'hidapi/libusb/hid.c' ],
               'include_dirs+': [
-                'libusb.gypi:libusb'
+                'libusb/libusb'
               ]
             }],
             [ 'driver=="hidraw"', {
