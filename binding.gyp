@@ -10,15 +10,15 @@
         [ 'OS=="mac"', {
           'sources': [ 'hidapi/mac/hid.c' ],
           'include_dirs+': [
-            'libusb/libusb'
+            '/usr/include/libusb-1.0/'
           ]
         }],
         [ 'OS=="linux"', {
           'conditions': [
             [ 'driver=="libusb"', {
               'sources': [ 'hidapi/libusb/hid.c' ],
-              'include_dirs+': [
-                'libusb/libusb'
+	      'dependencies': [
+		'libusb.gypi:libusb',
               ]
             }],
             [ 'driver=="hidraw"', {
