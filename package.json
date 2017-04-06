@@ -13,6 +13,7 @@
   },
   "scripts": {
     "test": "node nodehid.js",
+    "prepublish": "git submodule update --init",
     "install": "node-pre-gyp install --fallback-to-build",
     "rebuild-all": "npm rebuild && node-gyp rebuild",
     "gyppackage": "node-pre-gyp package",
